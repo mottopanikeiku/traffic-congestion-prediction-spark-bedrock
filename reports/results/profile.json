@@ -1,0 +1,439 @@
+{
+  "row_count": 52551,
+  "column_count": 9,
+  "schema": [
+    {
+      "name": "holiday",
+      "type": "string"
+    },
+    {
+      "name": "temp",
+      "type": "double"
+    },
+    {
+      "name": "rain_1h",
+      "type": "double"
+    },
+    {
+      "name": "snow_1h",
+      "type": "double"
+    },
+    {
+      "name": "clouds_all",
+      "type": "int"
+    },
+    {
+      "name": "weather_main",
+      "type": "string"
+    },
+    {
+      "name": "weather_description",
+      "type": "string"
+    },
+    {
+      "name": "date_time",
+      "type": "timestamp"
+    },
+    {
+      "name": "traffic_volume",
+      "type": "int"
+    }
+  ],
+  "numeric_summary": [
+    {
+      "summary": "count",
+      "temp": "52551",
+      "rain_1h": "52551",
+      "snow_1h": "52551",
+      "clouds_all": "52551",
+      "traffic_volume": "52551"
+    },
+    {
+      "summary": "mean",
+      "temp": "281.2243424482885",
+      "rain_1h": "0.4765783714867463",
+      "snow_1h": "0.1818629521797872",
+      "clouds_all": "43.83977469505813",
+      "traffic_volume": "2029.1705200662213"
+    },
+    {
+      "summary": "stddev",
+      "temp": "11.8420533868015",
+      "rain_1h": "1.520603263387176",
+      "snow_1h": "0.7612526535958286",
+      "clouds_all": "33.48016920263341",
+      "traffic_volume": "1132.0298568427597"
+    },
+    {
+      "summary": "min",
+      "temp": "254.19",
+      "rain_1h": "0.0",
+      "snow_1h": "0.0",
+      "clouds_all": "0",
+      "traffic_volume": "0"
+    },
+    {
+      "summary": "max",
+      "temp": "306.68",
+      "rain_1h": "8.0",
+      "snow_1h": "5.0",
+      "clouds_all": "100",
+      "traffic_volume": "5044"
+    }
+  ],
+  "null_counts": {
+    "holiday": 0,
+    "temp": 0,
+    "rain_1h": 0,
+    "snow_1h": 0,
+    "clouds_all": 0,
+    "weather_main": 0,
+    "weather_description": 0,
+    "date_time": 0,
+    "traffic_volume": 0
+  },
+  "traffic_volume_quantiles": {
+    "p05": 596.0,
+    "p25": 998.0,
+    "p50": 1860.0,
+    "p75": 2900.0,
+    "p95": 4046.0
+  },
+  "temp_quantiles": {
+    "p05": 263.3,
+    "p25": 270.43,
+    "p50": 281.28,
+    "p75": 291.95,
+    "p95": 299.01
+  },
+  "weather_main_distribution": [
+    {
+      "weather_main": "Clear",
+      "count": 23656
+    },
+    {
+      "weather_main": "Clouds",
+      "count": 15880
+    },
+    {
+      "weather_main": "Rain",
+      "count": 6209
+    },
+    {
+      "weather_main": "Snow",
+      "count": 3713
+    },
+    {
+      "weather_main": "Mist",
+      "count": 2036
+    },
+    {
+      "weather_main": "Haze",
+      "count": 552
+    },
+    {
+      "weather_main": "Fog",
+      "count": 505
+    }
+  ],
+  "holiday_distribution": [
+    {
+      "holiday": "None",
+      "count": 52515
+    },
+    {
+      "holiday": "Christmas Day",
+      "count": 6
+    },
+    {
+      "holiday": "New Years Day",
+      "count": 6
+    },
+    {
+      "holiday": "Labor Day",
+      "count": 6
+    },
+    {
+      "holiday": "Thanksgiving Day",
+      "count": 6
+    },
+    {
+      "holiday": "Memorial Day",
+      "count": 6
+    },
+    {
+      "holiday": "Independence Day",
+      "count": 6
+    }
+  ],
+  "hourly_volume": [
+    {
+      "hour": 0,
+      "avg_volume": 780.9205116491548,
+      "median_volume": 778,
+      "n_records": 2189
+    },
+    {
+      "hour": 1,
+      "avg_volume": 783.2973960712654,
+      "median_volume": 790,
+      "n_records": 2189
+    },
+    {
+      "hour": 2,
+      "avg_volume": 791.8661489264505,
+      "median_volume": 793,
+      "n_records": 2189
+    },
+    {
+      "hour": 3,
+      "avg_volume": 844.2718136135221,
+      "median_volume": 849,
+      "n_records": 2189
+    },
+    {
+      "hour": 4,
+      "avg_volume": 1018.2270443124714,
+      "median_volume": 1032,
+      "n_records": 2189
+    },
+    {
+      "hour": 5,
+      "avg_volume": 1492.8579259936043,
+      "median_volume": 1596,
+      "n_records": 2189
+    },
+    {
+      "hour": 6,
+      "avg_volume": 2244.301964367291,
+      "median_volume": 2593,
+      "n_records": 2189
+    },
+    {
+      "hour": 7,
+      "avg_volume": 2772.1777067153953,
+      "median_volume": 3292,
+      "n_records": 2189
+    },
+    {
+      "hour": 8,
+      "avg_volume": 2684.4997715851987,
+      "median_volume": 3087,
+      "n_records": 2189
+    },
+    {
+      "hour": 9,
+      "avg_volume": 2390.105936073059,
+      "median_volume": 2562,
+      "n_records": 2190
+    },
+    {
+      "hour": 10,
+      "avg_volume": 2312.255707762557,
+      "median_volume": 2371,
+      "n_records": 2190
+    },
+    {
+      "hour": 11,
+      "avg_volume": 2475.6634703196346,
+      "median_volume": 2530,
+      "n_records": 2190
+    },
+    {
+      "hour": 12,
+      "avg_volume": 2691.1972602739725,
+      "median_volume": 2737,
+      "n_records": 2190
+    },
+    {
+      "hour": 13,
+      "avg_volume": 2846.992694063927,
+      "median_volume": 2953,
+      "n_records": 2190
+    },
+    {
+      "hour": 14,
+      "avg_volume": 3013.262100456621,
+      "median_volume": 3207,
+      "n_records": 2190
+    },
+    {
+      "hour": 15,
+      "avg_volume": 3306.3598173515984,
+      "median_volume": 3668,
+      "n_records": 2190
+    },
+    {
+      "hour": 16,
+      "avg_volume": 3547.035616438356,
+      "median_volume": 4102,
+      "n_records": 2190
+    },
+    {
+      "hour": 17,
+      "avg_volume": 3486.336073059361,
+      "median_volume": 4103,
+      "n_records": 2190
+    },
+    {
+      "hour": 18,
+      "avg_volume": 2917.7406392694065,
+      "median_volume": 3413,
+      "n_records": 2190
+    },
+    {
+      "hour": 19,
+      "avg_volume": 2104.9785388127852,
+      "median_volume": 2338,
+      "n_records": 2190
+    },
+    {
+      "hour": 20,
+      "avg_volume": 1438.4333333333334,
+      "median_volume": 1481,
+      "n_records": 2190
+    },
+    {
+      "hour": 21,
+      "avg_volume": 1058.8237442922375,
+      "median_volume": 1066,
+      "n_records": 2190
+    },
+    {
+      "hour": 22,
+      "avg_volume": 881.1534246575343,
+      "median_volume": 891,
+      "n_records": 2190
+    },
+    {
+      "hour": 23,
+      "avg_volume": 815.1191780821918,
+      "median_volume": 819,
+      "n_records": 2190
+    }
+  ],
+  "dow_volume": [
+    {
+      "dow": 1,
+      "avg_volume": 1420.1090255591055,
+      "n_records": 7512
+    },
+    {
+      "dow": 2,
+      "avg_volume": 2271.7994123931626,
+      "n_records": 7488
+    },
+    {
+      "dow": 3,
+      "avg_volume": 2271.6084232973476,
+      "n_records": 7503
+    },
+    {
+      "dow": 4,
+      "avg_volume": 2271.9467518636848,
+      "n_records": 7512
+    },
+    {
+      "dow": 5,
+      "avg_volume": 2270.5342119275824,
+      "n_records": 7512
+    },
+    {
+      "dow": 6,
+      "avg_volume": 2273.0901224707136,
+      "n_records": 7512
+    },
+    {
+      "dow": 7,
+      "avg_volume": 1426.1713258785942,
+      "n_records": 7512
+    }
+  ],
+  "monthly_volume": [
+    {
+      "month": 1,
+      "avg_volume": 2036.606182795699
+    },
+    {
+      "month": 2,
+      "avg_volume": 2031.7485207100592
+    },
+    {
+      "month": 3,
+      "avg_volume": 2021.2977150537633
+    },
+    {
+      "month": 4,
+      "avg_volume": 2030.3854166666667
+    },
+    {
+      "month": 5,
+      "avg_volume": 2034.638664874552
+    },
+    {
+      "month": 6,
+      "avg_volume": 2026.8291666666667
+    },
+    {
+      "month": 7,
+      "avg_volume": 2027.1312724014338
+    },
+    {
+      "month": 8,
+      "avg_volume": 2031.7096774193549
+    },
+    {
+      "month": 9,
+      "avg_volume": 2023.7120370370371
+    },
+    {
+      "month": 10,
+      "avg_volume": 2034.303543218235
+    },
+    {
+      "month": 11,
+      "avg_volume": 2025.4310185185186
+    },
+    {
+      "month": 12,
+      "avg_volume": 2026.1935483870968
+    }
+  ],
+  "weather_volume": [
+    {
+      "weather_main": "Clouds",
+      "avg_volume": 2120.6209697732997,
+      "n_records": 15880
+    },
+    {
+      "weather_main": "Clear",
+      "avg_volume": 2115.431518430842,
+      "n_records": 23656
+    },
+    {
+      "weather_main": "Fog",
+      "avg_volume": 2042.0910891089109,
+      "n_records": 505
+    },
+    {
+      "weather_main": "Mist",
+      "avg_volume": 1948.7283889980354,
+      "n_records": 2036
+    },
+    {
+      "weather_main": "Haze",
+      "avg_volume": 1939.447463768116,
+      "n_records": 552
+    },
+    {
+      "weather_main": "Rain",
+      "avg_volume": 1865.4087614752777,
+      "n_records": 6209
+    },
+    {
+      "weather_main": "Snow",
+      "avg_volume": 1418.0086183678966,
+      "n_records": 3713
+    }
+  ]
+}

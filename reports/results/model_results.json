@@ -1,0 +1,140 @@
+[
+  {
+    "name": "LogisticRegression",
+    "train_time_s": 5.622,
+    "accuracy": 0.557,
+    "precision": 0.5232,
+    "recall": 0.557,
+    "f1": 0.5298,
+    "confusion_matrix": [
+      [
+        48,
+        138,
+        1123
+      ],
+      [
+        133,
+        2599,
+        1603
+      ],
+      [
+        61,
+        1508,
+        3095
+      ]
+    ],
+    "feature_importances": [],
+    "parameters": {
+      "maxiter": 100,
+      "regparam": 0.0,
+      "elasticnetparam": 0.0,
+      "class": "LogisticRegressionModel"
+    }
+  },
+  {
+    "name": "DecisionTree",
+    "train_time_s": 1.029,
+    "accuracy": 0.9126,
+    "precision": 0.9134,
+    "recall": 0.9126,
+    "f1": 0.9121,
+    "confusion_matrix": [
+      [
+        1003,
+        0,
+        306
+      ],
+      [
+        0,
+        4050,
+        285
+      ],
+      [
+        149,
+        161,
+        4354
+      ]
+    ],
+    "feature_importances": [
+      0.8104,
+      0.0003,
+      0.0001,
+      0.1543,
+      0.0003,
+      0.0004,
+      0.0,
+      0.0338,
+      0.0004,
+      0.0,
+      0.0001,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameters": {
+      "maxdepth": 7,
+      "maxbins": 64,
+      "class": "DecisionTreeClassificationModel"
+    }
+  },
+  {
+    "name": "RandomForest",
+    "train_time_s": 9.28,
+    "accuracy": 0.9161,
+    "precision": 0.9179,
+    "recall": 0.9161,
+    "f1": 0.9149,
+    "confusion_matrix": [
+      [
+        946,
+        0,
+        363
+      ],
+      [
+        0,
+        4076,
+        259
+      ],
+      [
+        96,
+        147,
+        4421
+      ]
+    ],
+    "feature_importances": [
+      0.8022,
+      0.0311,
+      0.0094,
+      0.0441,
+      0.0005,
+      0.0566,
+      0.005,
+      0.0076,
+      0.0175,
+      0.0013,
+      0.0028,
+      0.0015,
+      0.0063,
+      0.0012,
+      0.0007,
+      0.0006,
+      0.0014,
+      0.0045,
+      0.0018,
+      0.0038
+    ],
+    "parameters": {
+      "maxdepth": 15,
+      "maxbins": 64,
+      "subsamplingrate": 0.9,
+      "featuresubsetstrategy": "log2",
+      "class": "RandomForestClassificationModel"
+    }
+  }
+]

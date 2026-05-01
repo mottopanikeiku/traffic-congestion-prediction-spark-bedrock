@@ -1,0 +1,33 @@
+{
+  "experiment_name": "unit-test",
+  "trial_name": "csp554-run-1777598082",
+  "region": "us-east-1",
+  "mode": "mock",
+  "pipeline_run_id": "csp554-run-1777598082",
+  "started_at": 1777598082.5189998,
+  "finished_at": 1777598082.5190113,
+  "spark_master": "local[*]",
+  "bedrock_mode": "mock",
+  "s3_bucket": null,
+  "s3_prefix": null,
+  "models": [
+    {
+      "name": "RandomForest",
+      "parameters": {
+        "numTrees": 120,
+        "maxDepth": 15
+      },
+      "metrics": {
+        "accuracy": 0.93,
+        "f1": 0.92
+      }
+    }
+  ],
+  "profile_summary": {
+    "row_count": 1000,
+    "column_count": 9,
+    "traffic_volume_quantiles": {
+      "p50": 3000.0
+    }
+  }
+}

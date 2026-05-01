@@ -1,0 +1,138 @@
+[
+  {
+    "datetime": "2012-10-11 21:00:00",
+    "predicted_level": "medium",
+    "context": {
+      "level": "medium",
+      "p_low": 0.1,
+      "p_medium": 0.8,
+      "p_high": 0.1,
+      "day_name": "Thursday",
+      "hour": 21,
+      "weather_main": "Clear",
+      "weather_description": "sky is clear",
+      "temp_c": 6.57000000000005,
+      "holiday": "None"
+    },
+    "alert": "Moderate traffic is expected on Thursday around 21:00 (model confidence ~80%). Expect moderate delays; standard rush-hour buffers should be sufficient."
+  },
+  {
+    "datetime": "2012-12-22 17:00:00",
+    "predicted_level": "low",
+    "context": {
+      "level": "low",
+      "p_low": 0.8,
+      "p_medium": 0.1,
+      "p_high": 0.1,
+      "day_name": "Saturday",
+      "hour": 17,
+      "weather_main": "Snow",
+      "weather_description": "light snow",
+      "temp_c": -2.019999999999982,
+      "holiday": "None"
+    },
+    "alert": "Light traffic is expected on Saturday around 17:00 (model confidence ~80%). Wet/slick conditions (light snow) may slow traffic further. Travel times should be normal."
+  },
+  {
+    "datetime": "2012-12-23 13:00:00",
+    "predicted_level": "low",
+    "context": {
+      "level": "low",
+      "p_low": 0.8,
+      "p_medium": 0.1,
+      "p_high": 0.1,
+      "day_name": "Sunday",
+      "hour": 13,
+      "weather_main": "Snow",
+      "weather_description": "light snow",
+      "temp_c": -5.569999999999993,
+      "holiday": "None"
+    },
+    "alert": "Light traffic is expected on Sunday around 13:00 (model confidence ~80%). Wet/slick conditions (light snow) may slow traffic further. Travel times should be normal."
+  },
+  {
+    "datetime": "2013-01-05 23:00:00",
+    "predicted_level": "low",
+    "context": {
+      "level": "low",
+      "p_low": 0.8,
+      "p_medium": 0.1,
+      "p_high": 0.1,
+      "day_name": "Saturday",
+      "hour": 23,
+      "weather_main": "Clouds",
+      "weather_description": "scattered clouds",
+      "temp_c": -11.25,
+      "holiday": "None"
+    },
+    "alert": "Light traffic is expected on Saturday around 23:00 (model confidence ~80%). Travel times should be normal."
+  },
+  {
+    "datetime": "2014-01-23 19:00:00",
+    "predicted_level": "medium",
+    "context": {
+      "level": "medium",
+      "p_low": 0.1,
+      "p_medium": 0.8,
+      "p_high": 0.1,
+      "day_name": "Thursday",
+      "hour": 19,
+      "weather_main": "Clouds",
+      "weather_description": "scattered clouds",
+      "temp_c": -9.519999999999982,
+      "holiday": "None"
+    },
+    "alert": "Moderate traffic is expected on Thursday around 19:00 (model confidence ~80%). Expect moderate delays; standard rush-hour buffers should be sufficient."
+  },
+  {
+    "datetime": "2015-01-04 06:00:00",
+    "predicted_level": "low",
+    "context": {
+      "level": "low",
+      "p_low": 0.8,
+      "p_medium": 0.1,
+      "p_high": 0.1,
+      "day_name": "Sunday",
+      "hour": 6,
+      "weather_main": "Clear",
+      "weather_description": "sky is clear",
+      "temp_c": -11.329999999999984,
+      "holiday": "None"
+    },
+    "alert": "Light traffic is expected on Sunday around 06:00 (model confidence ~80%). Travel times should be normal."
+  },
+  {
+    "datetime": "2015-01-09 06:00:00",
+    "predicted_level": "medium",
+    "context": {
+      "level": "medium",
+      "p_low": 0.1,
+      "p_medium": 0.8,
+      "p_high": 0.1,
+      "day_name": "Friday",
+      "hour": 6,
+      "weather_main": "Snow",
+      "weather_description": "light snow",
+      "temp_c": -12.109999999999957,
+      "holiday": "None"
+    },
+    "alert": "Moderate traffic is expected on Friday around 06:00 (model confidence ~80%). Wet/slick conditions (light snow) may slow traffic further. Expect moderate delays; standard rush-hour buffers should be sufficient."
+  },
+  {
+    "datetime": "2015-01-29 02:00:00",
+    "predicted_level": "low",
+    "context": {
+      "level": "low",
+      "p_low": 0.8,
+      "p_medium": 0.1,
+      "p_high": 0.1,
+      "day_name": "Thursday",
+      "hour": 2,
+      "weather_main": "Clear",
+      "weather_description": "sky is clear",
+      "temp_c": -15.899999999999977,
+      "holiday": "None"
+    },
+    "alert": "Light traffic is expected on Thursday around 02:00 (model confidence ~80%). Travel times should be normal."
+  }
+]

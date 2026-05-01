@@ -1,0 +1,62 @@
+{
+  "LogisticRegression": {
+    "high": {
+      "precision": 0.1983,
+      "recall": 0.0367,
+      "f1": 0.0619,
+      "support": 1309
+    },
+    "low": {
+      "precision": 0.6122,
+      "recall": 0.5995,
+      "f1": 0.6058,
+      "support": 4335
+    },
+    "medium": {
+      "precision": 0.5317,
+      "recall": 0.6636,
+      "f1": 0.5904,
+      "support": 4664
+    }
+  },
+  "DecisionTree": {
+    "high": {
+      "precision": 0.8707,
+      "recall": 0.7662,
+      "f1": 0.8151,
+      "support": 1309
+    },
+    "low": {
+      "precision": 0.9618,
+      "recall": 0.9343,
+      "f1": 0.9478,
+      "support": 4335
+    },
+    "medium": {
+      "precision": 0.8805,
+      "recall": 0.9335,
+      "f1": 0.9062,
+      "support": 4664
+    }
+  },
+  "RandomForest": {
+    "high": {
+      "precision": 0.9079,
+      "recall": 0.7227,
+      "f1": 0.8048,
+      "support": 1309
+    },
+    "low": {
+      "precision": 0.9652,
+      "recall": 0.9403,
+      "f1": 0.9526,
+      "support": 4335
+    },
+    "medium": {
+      "precision": 0.8767,
+      "recall": 0.9479,
+      "f1": 0.9109,
+      "support": 4664
+    }
+  }
+}
