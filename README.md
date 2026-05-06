@@ -49,8 +49,10 @@ The pipeline:
 7. Renders ten profiling + evaluation visualizations and a complete
    **Final_Project_Report.docx**.
 
-All AWS integrations have **mock modes** so the entire deliverable is
-exercisable with zero AWS configuration.
+AWS-dependent features are switchable so the entire deliverable is
+exercisable with zero AWS configuration: Bedrock and SageMaker include
+mock modes, and S3 reads/uploads stay disabled unless a bucket is
+explicitly configured.
 
 ---
 
@@ -103,8 +105,8 @@ traffic_congestion_prediction/
 | Requirement | Version |
 | ----------- | ------- |
 | Python      | 3.10 +  |
-| Java        | 11 +    |
-| Spark       | 3.5 +   |
+| Java        | 11 / 17 recommended; Java 21 also works locally |
+| Spark       | 3.5.x   |
 
 ```bash
 pip install -r requirements.txt
@@ -112,6 +114,12 @@ pip install -r requirements.txt
 
 The pipeline runs Spark in `local[*]` mode by default — no cluster is
 required.
+
+Windows note: Spark's local model persistence uses Hadoop's local
+filesystem layer, so Windows runs need `winutils.exe` available under
+`%HADOOP_HOME%\bin`. Use a Java version supported by Spark/Hadoop
+(11, 17, or 21); Java 25 is not compatible with the Hadoop 3.3.x runtime
+used by Spark 3.5.
 
 ---
 
@@ -236,7 +244,9 @@ The most useful ones:
 
 ## 7. AWS integrations
 
-The project hits all four AWS services named in the proposal.
+The project implements integration points for all four AWS services named
+in the proposal. The shipped run is local/offline, with Bedrock and
+SageMaker exercised in mock mode.
 
 ### Amazon Bedrock (real mode)
 
@@ -384,9 +394,9 @@ real UCI CSV, just a different data source.
 | ------------------ | -------- | ------------- | ---------- | ------ | ---------- |
 | Logistic Regression| 0.5570   | 0.5232        | 0.5570     | 0.5298 | ~6 s       |
 | Decision Tree      | 0.9126   | 0.9134        | 0.9126     | 0.9121 | ~1 s       |
-| **Random Forest**  | **0.9161** | **0.9181**  | **0.9161** | **0.9156** | ~9 s |
+| **Random Forest**  | **0.9161** | **0.9179**  | **0.9161** | **0.9149** | ~9 s |
 
-Random Forest leads on weighted F1 by ~0.4 percentage points over the
+Random Forest leads on weighted F1 by ~0.3 percentage points over the
 single Decision Tree, which lines up with the "ensembles dominate" claim
 in the literature review (Chen & Guestrin, 2016).
 

@@ -1,4 +1,4 @@
 model,accuracy,precision,recall,f1,train_time_s
-LogisticRegression,0.5570,0.5232,0.5570,0.5298,5.622
-DecisionTree,0.9126,0.9134,0.9126,0.9121,1.029
-RandomForest,0.9161,0.9179,0.9161,0.9149,9.280
+LogisticRegression,0.5570,0.5232,0.5570,0.5298,17.807
+DecisionTree,0.9126,0.9134,0.9126,0.9121,2.373
+RandomForest,0.9161,0.9179,0.9161,0.9149,18.133

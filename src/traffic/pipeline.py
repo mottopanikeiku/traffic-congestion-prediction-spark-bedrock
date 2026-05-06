@@ -203,7 +203,7 @@ def generate_sample_alerts(
         test_df.withColumn("hour_bucket", F.floor(F.col("hour") / 3))
         .dropDuplicates(["hour_bucket", "congestion"])
         .select(
-            "date_time",
+            F.date_format("date_time", "yyyy-MM-dd HH:mm:ss").alias("date_time"),
             "hour",
             "day_of_week",
             "weather_main",

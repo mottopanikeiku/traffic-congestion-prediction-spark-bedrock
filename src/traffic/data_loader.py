@@ -138,12 +138,15 @@ def summarize_load(df: DataFrame) -> dict:
     """Return a quick post-load summary used by the profiling step."""
     row_count = df.count()
     col_count = len(df.columns)
-    min_dt, max_dt = df.agg(F.min("date_time"), F.max("date_time")).first()
+    min_dt, max_dt = df.agg(
+        F.date_format(F.min("date_time"), "yyyy-MM-dd HH:mm:ss"),
+        F.date_format(F.max("date_time"), "yyyy-MM-dd HH:mm:ss"),
+    ).first()
     summary = {
         "rows": row_count,
         "columns": col_count,
-        "date_range_start": str(min_dt),
-        "date_range_end": str(max_dt),
+        "date_range_start": min_dt,
+        "date_range_end": max_dt,
         "source": "s3a://" if S3_CFG.enabled else "local",
     }
     if S3_CFG.enabled:

@@ -7,9 +7,16 @@ from __future__ import annotations
 
 import json
 import sys
+import uuid
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+
+def _workspace_tmp(name: str, suffix: str = "") -> Path:
+    root = Path(__file__).resolve().parents[1] / "tmp" / "pytest"
+    root.mkdir(parents=True, exist_ok=True)
+    return root / f"{name}-{uuid.uuid4().hex}{suffix}"
 
 
 def test_imports():
@@ -98,23 +105,24 @@ def test_holiday_clause_renders():
     assert "Thanksgiving Day" in text
 
 
-def test_synthetic_data_generation(tmp_path):
+def test_synthetic_data_generation():
     from traffic.synthetic_data import generate_dataset
 
-    target = tmp_path / "synthetic.csv"
+    target = _workspace_tmp("synthetic", ".csv")
     generate_dataset(target, seed=7)
     assert target.exists()
     content = target.read_text().splitlines()
     assert len(content) > 100  # header + many rows
     assert content[0].split(",")[0] == "holiday"
+    target.unlink(missing_ok=True)
 
 
-def test_synthetic_data_temperature_range(tmp_path):
+def test_synthetic_data_temperature_range():
     """Synthetic temps must stay inside a realistic Minneapolis envelope."""
     import csv as _csv
     from traffic.synthetic_data import generate_dataset
 
-    target = tmp_path / "synthetic.csv"
+    target = _workspace_tmp("synthetic-temp", ".csv")
     generate_dataset(target, seed=11)
     temps = []
     with target.open() as fh:
@@ -123,6 +131,7 @@ def test_synthetic_data_temperature_range(tmp_path):
     # Real UCI dataset temp range, K: ~243 (lowest cold snap) – ~310 (hottest summer hour).
     assert min(temps) > 240, f"min temp {min(temps)} K is below realistic range"
     assert max(temps) < 320, f"max temp {max(temps)} K is above realistic range"
+    target.unlink(missing_ok=True)
 
 
 def test_s3_config_disabled_by_default():
@@ -145,17 +154,18 @@ def test_s3_config_uri_builder():
     )
 
 
-def test_resolve_raw_csv_falls_back_to_local(tmp_path):
+def test_resolve_raw_csv_falls_back_to_local():
     from traffic.config import S3Config
     from traffic.storage import resolve_raw_csv
 
-    local = tmp_path / "metro.csv"
+    local = _workspace_tmp("metro", ".csv")
     local.write_text("dummy")
     cfg = S3Config(bucket=None)
     assert resolve_raw_csv(local, cfg) == str(local)
+    local.unlink(missing_ok=True)
 
 
-def test_sagemaker_tracker_off_mode_is_noop(tmp_path):
+def test_sagemaker_tracker_off_mode_is_noop():
     from traffic.config import SageMakerConfig
     from traffic.sagemaker_tracker import SageMakerTracker
 
@@ -166,8 +176,13 @@ def test_sagemaker_tracker_off_mode_is_noop(tmp_path):
     assert out is None
 
 
-def test_sagemaker_tracker_mock_mode_writes_payload():
-    from traffic.config import RESULTS_DIR, SageMakerConfig
+def test_sagemaker_tracker_mock_mode_writes_payload(monkeypatch):
+    from traffic.config import SageMakerConfig
+    from traffic import sagemaker_tracker
+
+    results_dir = _workspace_tmp("sagemaker")
+    results_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(sagemaker_tracker, "RESULTS_DIR", results_dir)
     from traffic.sagemaker_tracker import SageMakerTracker
 
     tracker = SageMakerTracker(SageMakerConfig(mode="mock", experiment_name="unit-test"))
@@ -186,6 +201,7 @@ def test_sagemaker_tracker_mock_mode_writes_payload():
     assert payload["mode"] == "mock"
     assert payload["models"][0]["name"] == "RandomForest"
     assert payload["profile_summary"]["row_count"] == 1000
+    out.unlink(missing_ok=True)
 
 
 def test_models_module_exposes_cv():

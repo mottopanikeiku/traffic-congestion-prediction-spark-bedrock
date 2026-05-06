@@ -1,0 +1,11 @@
+.venv/
+.venv*/
+.uv-cache/
+.uv-cache*/
+.uv-python/
+.hadoop/
+.pytest_cache/
+pytest-cache-files-*/
+tmp/
+__pycache__/
+*.py[cod]

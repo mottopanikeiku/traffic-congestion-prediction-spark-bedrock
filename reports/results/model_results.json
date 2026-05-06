@@ -1,7 +1,7 @@
 [
   {
     "name": "LogisticRegression",
-    "train_time_s": 5.622,
+    "train_time_s": 17.807,
     "accuracy": 0.557,
     "precision": 0.5232,
     "recall": 0.557,
@@ -33,7 +33,7 @@
   },
   {
     "name": "DecisionTree",
-    "train_time_s": 1.029,
+    "train_time_s": 2.373,
     "accuracy": 0.9126,
     "precision": 0.9134,
     "recall": 0.9126,
@@ -85,7 +85,7 @@
   },
   {
     "name": "RandomForest",
-    "train_time_s": 9.28,
+    "train_time_s": 18.133,
     "accuracy": 0.9161,
     "precision": 0.9179,
     "recall": 0.9161,

@@ -1,33 +1,74 @@
 {
-  "experiment_name": "unit-test",
-  "trial_name": "csp554-run-1777598082",
+  "experiment_name": "traffic-congestion-prediction",
+  "trial_name": "csp554-run-1778036705",
   "region": "us-east-1",
   "mode": "mock",
-  "pipeline_run_id": "csp554-run-1777598082",
-  "started_at": 1777598082.5189998,
-  "finished_at": 1777598082.5190113,
+  "pipeline_run_id": "csp554-run-1778036705",
+  "started_at": 1778036705.013472,
+  "finished_at": 1778036780.486041,
   "spark_master": "local[*]",
   "bedrock_mode": "mock",
   "s3_bucket": null,
-  "s3_prefix": null,
+  "s3_prefix": "traffic-congestion-prediction",
   "models": [
+    {
+      "name": "LogisticRegression",
+      "parameters": {
+        "maxiter": 100,
+        "regparam": 0.0,
+        "elasticnetparam": 0.0,
+        "class": "LogisticRegressionModel"
+      },
+      "metrics": {
+        "accuracy": 0.5570430733410943,
+        "precision": 0.523240885268359,
+        "recall": 0.5570430733410943,
+        "f1": 0.5297590312605739,
+        "train_time_s": 17.807464838027954
+      }
+    },
+    {
+      "name": "DecisionTree",
+      "parameters": {
+        "maxdepth": 7,
+        "maxbins": 64,
+        "class": "DecisionTreeClassificationModel"
+      },
+      "metrics": {
+        "accuracy": 0.912592161428017,
+        "precision": 0.9134202832324417,
+        "recall": 0.912592161428017,
+        "f1": 0.9121483396051783,
+        "train_time_s": 2.3731276988983154
+      }
+    },
     {
       "name": "RandomForest",
       "parameters": {
-        "numTrees": 120,
-        "maxDepth": 15
+        "maxdepth": 15,
+        "maxbins": 64,
+        "subsamplingrate": 0.9,
+        "featuresubsetstrategy": "log2",
+        "class": "RandomForestClassificationModel"
       },
       "metrics": {
-        "accuracy": 0.93,
-        "f1": 0.92
+        "accuracy": 0.9160845944897167,
+        "precision": 0.9178548786696279,
+        "recall": 0.9160845944897168,
+        "f1": 0.9149365361258998,
+        "train_time_s": 18.133257150650024
       }
     }
   ],
   "profile_summary": {
-    "row_count": 1000,
+    "row_count": 52551,
     "column_count": 9,
     "traffic_volume_quantiles": {
-      "p50": 3000.0
+      "p05": 596.0,
+      "p25": 998.0,
+      "p50": 1860.0,
+      "p75": 2900.0,
+      "p95": 4046.0
     }
   }
 }

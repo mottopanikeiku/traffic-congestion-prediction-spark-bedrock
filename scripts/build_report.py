@@ -361,16 +361,17 @@ def build():
         "(iii) A dual-mode Amazon Bedrock integration: a deterministic mock "
         "backend for offline use and a real boto3 backend that invokes "
         "Anthropic Claude 3 Haiku, switchable from a single CLI flag.",
-        "(iv) A live Amazon S3 path: the SparkSession is built with the "
+        "(iv) An AWS-ready Amazon S3 path: the SparkSession is built with the "
         "Hadoop S3A connector, the data loader reads s3a://... when "
         "TRAFFIC_S3_BUCKET / --s3-bucket is set, and the pipeline mirrors "
         "every artifact (profile, model files, figures, alerts) back into "
         "s3://{bucket}/{prefix}/... when --s3-upload is set.",
-        "(v) Amazon SageMaker integration via boto3: each pipeline run "
-        "registers an Experiment + Trial + TrialComponent capturing "
-        "hyperparameters and metrics for every model. A mock mode writes "
-        "the same payload to disk so the integration is exercisable "
-        "offline; --sagemaker-mode real wires it up to a live AWS account.",
+        "(v) Amazon SageMaker integration via boto3: in real mode each "
+        "pipeline run registers an Experiment + Trial + TrialComponent "
+        "capturing hyperparameters and metrics for every model. A mock "
+        "mode writes the same tracking payload to disk so the integration "
+        "is exercisable offline; --sagemaker-mode real wires it up to a "
+        "live AWS account.",
         "(vi) A full set of ten publication-quality visualizations "
         "covering both data profiling and model evaluation, generated "
         "reproducibly from the saved artifacts.",
@@ -549,9 +550,10 @@ def build():
         "distributional characteristics (seasonal temperature range, "
         "weekday rush-hour seasonality, weather-frequency distribution, "
         "holiday markers) — is used so the pipeline still runs end-to-end. "
-        "All shipped numbers come from the path the grader's environment "
-        "permits; on a machine with network access the pipeline produces "
-        "identical results from the real CSV with no code changes."
+        "All shipped numbers come from the local path the grader's "
+        "environment permits; on a machine with network access, the same "
+        "workflow can run against the real CSV with no code changes, though "
+        "metrics may change when the data source changes."
     )
 
     add_heading(doc, "3.3  Module Layout", level=2)
@@ -645,7 +647,7 @@ def build():
     s3_status = (
         f"Enabled (bucket={summary['s3'].get('bucket')})"
         if summary.get('s3', {}).get('enabled')
-        else "Implemented and integration-tested; off in the shipped run"
+        else "Implemented; off in the shipped run"
     )
     sm_mode = summary.get("sagemaker", {}).get("mode", "off")
     aws_rows = [
@@ -897,8 +899,8 @@ def build():
         "synthetic dataset because the submission environment blocks "
         "outbound HTTP to UCI and Kaggle. The S3 read path "
         "(s3a://{bucket}/{prefix}/raw/Metro_Interstate_Traffic_Volume.csv) "
-        "and the http download path are both implemented and exercised "
-        "in unit tests; switching to the real CSV is a single CLI flag "
+        "and the http download path are implemented; switching to the real "
+        "CSV is a single CLI flag "
         "(--s3-bucket) or env var (TRAFFIC_S3_BUCKET) and requires no "
         "code changes. Dataset reference: Hogue (2019), UCI Repository.",
         "(b) Class boundaries (1,500 and 3,500 vehicles/hour) are "
@@ -1115,14 +1117,14 @@ def build():
         add_heading(doc, "Appendix E — SageMaker Tracking Payload", level=1)
         add_paragraph(
             doc,
-            "When --sagemaker-mode mock or --sagemaker-mode real is set, "
-            "the pipeline registers an Experiment + Trial + TrialComponent "
-            "for the run and attaches each model's hyperparameters and "
-            "evaluation metrics. The shipped run was executed in mock "
-            "mode so the same payload that would be sent to SageMaker is "
-            "written to reports/results/sagemaker_tracking.json. The "
-            "structure below mirrors the AWS SageMaker Experiments API "
-            "exactly."
+            "When --sagemaker-mode real is set, the pipeline registers an "
+            "Experiment + Trial + TrialComponent for the run and attaches "
+            "each model's hyperparameters and evaluation metrics. The "
+            "shipped run was executed in mock mode, so the equivalent "
+            "tracking payload is written to "
+            "reports/results/sagemaker_tracking.json for offline review. "
+            "The structure below mirrors the AWS SageMaker Experiments "
+            "payload shape."
         )
         add_code_block(doc, json.dumps(sagemaker, indent=2))
 
